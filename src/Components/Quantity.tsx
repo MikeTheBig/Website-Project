@@ -14,7 +14,6 @@ const QuantityInput: React.FC<QuantityInputProps> = ({ quantity, onQuantityChang
         value={quantity}
         onChange={(e) => onQuantityChange(Number(e.target.value))}
         min="1"
-        max="10"
         className="mt-1 px-2 py-1 border border-gray-300 rounded-md"
       />
     </div>

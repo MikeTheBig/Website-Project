@@ -17,11 +17,9 @@ const colorOptions = [
 
 const Sidebar: React.FC = () => {
 
-  const deafaultProduct = productOptions[0].name;
-  const deafaultColor = colorOptions[0].name;
 
-  const [selectedProduct, setSelectedProduct] = useState<string>(deafaultProduct);
-  const [selectedColor, setSelectedColor] = useState<string | null>(deafaultColor);
+  const [selectedProduct, setSelectedProduct] = useState<string>(productOptions[0].name);
+  const [selectedColor, setSelectedColor] = useState<string | null>(colorOptions[0].name);
   const [quantity, setQuantity] = useState<number>(1);
   const [extraFeatures, setExtraFeatures] = useState({
     extendedWarranty: false,
