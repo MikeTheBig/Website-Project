@@ -12,7 +12,7 @@ const Button: React.FC<Botton> = ({ selectedColor, setSelectedColor, colorOption
         <button
           key={option.name}
           onClick={() => setSelectedColor(option.name)}
-          className={`px-4 py-2 text-sm text-white ${option.colorClass} rounded-md border-2 border-transparent focus:outline-none ${selectedColor === option.name ? 'ring-2 ring-opacity-50' : ''}`}
+          className={`px-4 py-2 text-sm text-red-400 ${option.colorClass} rounded-md border-2 border-transparent focus:outline-none ${selectedColor === option.name ? 'ring-2 ring-opacity-50' : ''}`}
         >
           {option.name} ${option.price}
         </button>
