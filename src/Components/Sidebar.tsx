@@ -1,57 +1,48 @@
-import React from 'react';
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import React, { useState } from 'react';
+import ProductDropdown from './Dropdown';
+import ColorPicker from './Button'; 
+
+const productOptions = [
+  { name: 'Standard', price: 50 },
+  { name: 'Premium', price: 100 },
+  { name: 'Deluxe', price: 150 },
+];
+
+const colorOptions = [
+  { name: 'Red', price: 10, colorClass: 'bg-red-500' },
+  { name: 'Blue', price: 15, colorClass: 'bg-blue-500' },
+  { name: 'Green', price: 20, colorClass: 'bg-green-500' },
+];
 
 const Sidebar: React.FC = () => {
-  return (
-    <aside className="w-64 bg-gray-800 text-white h-full p-4">
-      <h2 className="text-lg font-semibold mb-4">Velkommen til </h2>
-      <div>
-        <Menu as="div" className="relative">
-          <div>
-            <MenuButton className="inline-flex w-full justify-between px-4 py-2 text-sm font-medium bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              Product Type
-              <ChevronDownIcon className="w-5 h-5 ml-2" aria-hidden="true" />
-            </MenuButton>
-          </div>
+  const [selectedProduct, setSelectedProduct] = useState<string>('');
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
-          <MenuItems className="absolute w-full mt-2 origin-top-right bg-white text-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="py-1">
-              <MenuItem>
-                {({ active }) => (
-                  <a
-                    href="#"
-                    className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}`}
-                  >
-                    Standard
-                  </a>
-                )}
-              </MenuItem>
-              <MenuItem>
-                {({ active }) => (
-                  <a
-                    href="#"
-                    className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}`}
-                  >
-                    Premium
-                  </a>
-                )}
-              </MenuItem>
-              <MenuItem>
-                {({ active }) => (
-                  <a
-                    href="#"
-                    className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}`}
-                  >
-                    Deluxe
-                  </a>
-                )}
-              </MenuItem>
-            </div>
-          </MenuItems>
-        </Menu>
+  const selectedProductPrice = productOptions.find(option => option.name === selectedProduct)?.price || 0;
+
+  const selectedColorPrice = colorOptions.find(option => option.name === selectedColor)?.price || 0;
+
+  const totalPrice = selectedProductPrice + selectedColorPrice;
+
+  return (
+    <div className="flex flex-col space-y-4 p-4">
+      <ProductDropdown
+        selectedProduct={selectedProduct}
+        setSelectedProduct={setSelectedProduct}
+        productOptions={productOptions} 
+      />
+      <ColorPicker
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
+        colorOptions={colorOptions}
+      />
+      <div className="flex flex-col mt-4">
+        <h4 className="text-lg font-semibold">Total Price:</h4>
+        <p className="text-xl">
+          ${totalPrice.toFixed(2)}
+        </p>
       </div>
-    </aside>
+    </div>
   );
 };
 

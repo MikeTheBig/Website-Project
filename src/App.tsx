@@ -10,6 +10,7 @@ const App = () => {
         <p>This is the main content area. The sidebar is positioned to the left.</p>
       </main>
     </div>
+
   );
 };
 
