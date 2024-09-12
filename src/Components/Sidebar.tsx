@@ -16,8 +16,6 @@ const colorOptions = [
 ];
 
 const Sidebar: React.FC = () => {
-
-
   const [selectedProduct, setSelectedProduct] = useState<string>(productOptions[0].name);
   const [selectedColor, setSelectedColor] = useState<string | null>(colorOptions[0].name);
   const [quantity, setQuantity] = useState<number>(1);
@@ -61,8 +59,20 @@ const Sidebar: React.FC = () => {
     }));
   };
 
+  // Function to reset the order
+  const resetOrder = () => {
+    setSelectedProduct(productOptions[0].name);
+    setSelectedColor(colorOptions[0].name);
+    setQuantity(1);
+    setExtraFeatures({
+      extendedWarranty: false,
+      broughtUpToCurb: false,
+      Setup: false,
+    });
+  };
+
   return (
-    <div className="bg-red-400 flex flex-col space-y-4 p-4 ">
+    <div className="bg-red-400 flex flex-col space-y-4 p-4">
       <ProductDropdown
         selectedProduct={selectedProduct}
         setSelectedProduct={setSelectedProduct}
@@ -118,8 +128,12 @@ const Sidebar: React.FC = () => {
             </button>
             <button
               className="mt-4 ml-12 bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600"
-              onClick={() => setIsModalOpen(false)}
-              >
+              onClick={() => {
+                alert('Your order is confirmed!');
+                resetOrder();
+                setIsModalOpen(false);
+              }}
+            >
               Confirm Order!
             </button>
           </div>
