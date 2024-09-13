@@ -6,16 +6,15 @@ interface ExtraFeatures {
     broughtUpToCurb: boolean;
     Setup: boolean;
   };
+  featurePrices: {
+    extendedWarranty: number;
+    broughtUpToCurb: number;
+    Setup: number;
+  };
   onFeatureChange: (feature: string) => void;
 }
 
-const featurePrices = {
-  extendedWarranty: 60,
-  broughtUpToCurb: 30,
-  Setup: 100,
-};
-
-const ExtraFeatures: React.FC<ExtraFeatures> = ({ extraFeatures, onFeatureChange }) => {
+const ExtraFeatures: React.FC<ExtraFeatures> = ({ extraFeatures, featurePrices, onFeatureChange }) => {
   return (
     <div className="flex flex-col mt-4">
       <h4 className="text-lg font-semibold">Extra Features:</h4>

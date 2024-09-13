@@ -11,10 +11,9 @@ const productOptions = [
 ];
 
 const colorOptions = [
-  { name: 'Black', price: 15, colorClass: 'bg-black', imageUrl: "https://w7.pngwing.com/pngs/333/421/png-transparent-air-conditioner-lg-am12bp-nsj-artcool-mirror-air-conditioning-system-lg-electronics-power-inverters-inverterska-klima-others-electronics-air-conditioner-stereo-amplifier-thumbnail.png"},
+  { name: 'Black', price: 15, colorClass: 'bg-black', imageUrl: "https://klima.pt/48986-home_default/Array.jpg"},
   { name: 'White', price: 15, colorClass: 'bg-white', imageUrl: "https://e7.pngegg.com/pngimages/470/84/png-clipart-air-conditioner-inverterska-klima-lg-electronics-energy-conservation-air-conditioner-rectangle-home-appliance-thumbnail.png" },
 ];
-
 
 const Sidebar: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>(productOptions[0].name);
@@ -31,7 +30,7 @@ const Sidebar: React.FC = () => {
   const featurePrices = {
     extendedWarranty: 60,
     broughtUpToCurb: 30,
-    Setup: 100,
+    Setup: 150,
   };
 
   // Find the selected product price
@@ -86,6 +85,7 @@ const Sidebar: React.FC = () => {
       />
       <ExtraFeatures
         extraFeatures={extraFeatures}
+        featurePrices={featurePrices}
         onFeatureChange={handleFeatureChange}
       />
       <QuantityInput quantity={quantity} onQuantityChange={setQuantity} />
