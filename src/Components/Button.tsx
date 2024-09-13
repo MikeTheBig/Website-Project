@@ -5,12 +5,13 @@ interface Button {
 }
 
 const Button: React.FC<Button> = ({ selectedColor, setSelectedColor, colorOptions }) => {
-  // Get the image URL based on the selected color
+  {/* Get the image URL based on what the selected color is*/}
   const selectedImage = colorOptions.find(option => option.name === selectedColor)?.imageUrl;
 
   return (
     <div className="flex flex-col space-y-4">
       <h3 className="text-lg font-semibold">Color Options</h3>
+
 
       {/* Color Option Buttons */}
       <div className="flex space-x-2 text-red-400">
@@ -22,12 +23,12 @@ const Button: React.FC<Button> = ({ selectedColor, setSelectedColor, colorOption
               selectedColor === option.name ? 'ring-2 ring-opacity-50' : ''
             }`}
           >
-            {option.name} ${option.price}
+            {option.name} ${option.price} {/* Display product name and price */}
           </button>
         ))}
       </div>
 
-      {/* Display the image that corresponds to the selected color */}
+      {/* Show the image that corresponds to the selected color */}
       {selectedImage && (
         <div className="mt-4">
           <img src={selectedImage} alt={selectedColor || 'Selected color'} className="w-64 h-64 object-cover rounded-md" />

@@ -4,17 +4,20 @@ import Button from './Button';
 import ExtraFeatures from './Option';
 import QuantityInput from './Quantity';
 
+// Define the product options
 const productOptions = [
   { name: 'Aircondition 2000 ', price: 200 },
   { name: 'Aircondition 3000', price: 299 },
   { name: 'Aircondition 4000', price: 349 },
 ];
 
+// Define the color options
 const colorOptions = [
   { name: 'Black', price: 15, colorClass: 'bg-black', imageUrl: "https://klima.pt/48986-home_default/Array.jpg"},
   { name: 'White', price: 15, colorClass: 'bg-white', imageUrl: "https://e7.pngegg.com/pngimages/470/84/png-clipart-air-conditioner-inverterska-klima-lg-electronics-energy-conservation-air-conditioner-rectangle-home-appliance-thumbnail.png" },
 ];
 
+// Define the Sidebar component
 const Sidebar: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>(productOptions[0].name);
   const [selectedColor, setSelectedColor] = useState<string | null>(colorOptions[0].name);
@@ -27,6 +30,7 @@ const Sidebar: React.FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false); // For controlling modal visibility
 
+  // Define the prices for the extra features
   const featurePrices = {
     extendedWarranty: 60,
     broughtUpToCurb: 30,
@@ -52,6 +56,7 @@ const Sidebar: React.FC = () => {
   // Calculate the total price
   const totalPrice = (selectedProductPrice + selectedColorPrice + totalExtraFeaturesPrice) * quantity;
 
+  // Function to handle changes in feature selection
   const handleFeatureChange = (feature: string) => {
     setExtraFeatures((prevState) => ({
       ...prevState,
@@ -71,7 +76,9 @@ const Sidebar: React.FC = () => {
     });
   };
 
+
   return (
+    // Sidebar component
     <div className="bg-red-400 flex flex-col space-y-4 p-4">
       <ProductDropdown
         selectedProduct={selectedProduct}
@@ -89,8 +96,8 @@ const Sidebar: React.FC = () => {
         onFeatureChange={handleFeatureChange}
       />
       <QuantityInput quantity={quantity} onQuantityChange={setQuantity} />
-      
-      {/* Display Total Price */}
+
+      {/* Total Price */}      
       <div className="flex flex-col mt-4">
         <h4 className="text-lg font-semibold">Total Price:</h4>
         <p className="text-xl">${totalPrice.toFixed(2)}</p>
@@ -127,6 +134,8 @@ const Sidebar: React.FC = () => {
             >
               Close
             </button>
+              
+              {/* Confirm Order Button */}
             <button
               className="mt-4 ml-12 bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600"
               onClick={() => {
