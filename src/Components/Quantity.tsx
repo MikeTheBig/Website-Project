@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface QuantityInputProps {
+interface QuantityInput {
   quantity: number;
   onQuantityChange: (value: number) => void;
 }
 
-const QuantityInput: React.FC<QuantityInputProps> = ({ quantity, onQuantityChange }) => {
+const QuantityInput: React.FC<QuantityInput> = ({ quantity, onQuantityChange }) => {
   return (
     <div className="flex flex-col mt-4">
       <h4 className="text-lg font-semibold">Quantity:</h4>

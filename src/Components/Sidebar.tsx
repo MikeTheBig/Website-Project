@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProductDropdown from './Dropdown';
-import ColorPicker from './Button';
+import Button from './Button';
 import ExtraFeatures from './Option';
 import QuantityInput from './Quantity';
 
@@ -11,9 +11,10 @@ const productOptions = [
 ];
 
 const colorOptions = [
-  { name: 'Black', price: 15, colorClass: 'bg-black' },
-  { name: 'White', price: 15, colorClass: 'bg-white' },
+  { name: 'Black', price: 15, colorClass: 'bg-black', imageUrl: "https://w7.pngwing.com/pngs/333/421/png-transparent-air-conditioner-lg-am12bp-nsj-artcool-mirror-air-conditioning-system-lg-electronics-power-inverters-inverterska-klima-others-electronics-air-conditioner-stereo-amplifier-thumbnail.png"},
+  { name: 'White', price: 15, colorClass: 'bg-white', imageUrl: "https://e7.pngegg.com/pngimages/470/84/png-clipart-air-conditioner-inverterska-klima-lg-electronics-energy-conservation-air-conditioner-rectangle-home-appliance-thumbnail.png" },
 ];
+
 
 const Sidebar: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<string>(productOptions[0].name);
@@ -78,7 +79,7 @@ const Sidebar: React.FC = () => {
         setSelectedProduct={setSelectedProduct}
         productOptions={productOptions}
       />
-      <ColorPicker
+      <Button
         selectedColor={selectedColor}
         setSelectedColor={setSelectedColor}
         colorOptions={colorOptions}

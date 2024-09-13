@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ExtraFeaturesProps {
+interface ExtraFeatures {
   extraFeatures: {
     extendedWarranty: boolean;
     broughtUpToCurb: boolean;
@@ -15,7 +15,7 @@ const featurePrices = {
   Setup: 100,
 };
 
-const ExtraFeatures: React.FC<ExtraFeaturesProps> = ({ extraFeatures, onFeatureChange }) => {
+const ExtraFeatures: React.FC<ExtraFeatures> = ({ extraFeatures, onFeatureChange }) => {
   return (
     <div className="flex flex-col mt-4">
       <h4 className="text-lg font-semibold">Extra Features:</h4>

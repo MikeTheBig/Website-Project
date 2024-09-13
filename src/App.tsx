@@ -6,10 +6,9 @@ const App = () => {
       <Sidebar />
       <main className="flex-1 p-4">
       <div className="flex flex-col sm:flex-row gap-4">
-  <div className="flex-1 bg-white- p-4">  
+  <div className="flex-1 bg-white p-4">  
     <h1 className="text-6xl font-bold">Velcomen to CoolBreezet</h1>
     <p className="mt-3 text-lg ml-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quas a. Autem minima unde suscipit qui eveniet mollitia nam illo saepe excepturi ducimus culpa temporibus at, vero corrupti quaerat sapiente.</p>
-    <img src="https://www.novasolar.dk/1146-home_default/Mitsubishi-HR25-COOL-Aircondition.jpg" alt="Random" className="ml-4 " />
   </div>
   <div className="flex-1 bg-red-400 p-2">
     <h1 className="text-6xl font-bold">Specs:</h1>
@@ -19,9 +18,7 @@ const App = () => {
 
     CoolBreezet har en maks. ydelse ved køledrift på 2,9kW som gør den kan køle op til 58m2, i en velisoleret bolig.
     </p>
-
   </div>
-    <p></p>
 </div>
       </main>
     </div>
