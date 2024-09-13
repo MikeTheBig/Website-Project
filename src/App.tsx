@@ -1,9 +1,9 @@
 import Sidebar from './Components/Sidebar';
 
-// Path to your background image
+// Background image
 const backgroundImageUrl = 'https://media.istockphoto.com/id/1464462569/photo/happy-family-resting-under-air-conditioner-on-beige-wall-at-home.jpg?s=612x612&w=0&k=20&c=DDjRPWVmxJrJpahEbROcSAd08-hYBQ29ppl01vTKM5g=';
 
-//     // Main content
+// Main content
 const App = () => {
   return (
     <div
