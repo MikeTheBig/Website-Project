@@ -7,7 +7,7 @@ const backgroundImageUrl = 'https://media.istockphoto.com/id/1464462569/photo/ha
 const App = () => {
   return (
     <div
-      className="flex h-screen bg-cover bg-center bg-no-repeat"
+      className="flex bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <Sidebar />
